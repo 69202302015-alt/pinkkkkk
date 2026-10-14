@@ -207,7 +207,7 @@
                     <div class="relative bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-xl text-center space-y-5 print-card">
                         <!-- Avatar Display / Custom Upload Placeholder -->
                         <div class="relative group mx-auto w-36 h-36 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border-2 border-brand-500/30 flex items-center justify-center">
-                            <img id="profileImage" src="https://placehold.co/300x300/16a34a/ffffff?text=Jiraporn+T." alt="นางสาวจิราภรณ์ ทองจันทร์" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <img id="profileImage" src="https://raw.githubusercontent.com/69202302015-alt/pinkkkkk/main/IMG_5186.JPG" onerror="handleImageError(this)" alt="นางสาวจิราภรณ์ ทองจันทร์" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <label for="imgUpload" class="no-print absolute inset-0 bg-black/50 text-white opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center text-xs cursor-pointer transition-opacity">
                                 <i class="fa-solid fa-camera text-lg mb-1"></i>
                                 <span>เปลี่ยนรูปโปรไฟล์</span>
@@ -693,6 +693,20 @@
                     document.getElementById('profileImage').src = e.target.result;
                 }
                 reader.readAsDataURL(file);
+            }
+        }
+
+        // Fallback handler for GitHub profile image URL types
+        function handleImageError(img) {
+            const githubMediaUrl = "https://github.com/69202302015-alt/pinkkkkk/raw/main/IMG_5186.JPG";
+            const rawGithubUrl = "https://raw.githubusercontent.com/69202302015-alt/pinkkkkk/main/IMG_5186.JPG";
+            
+            if (img.src !== githubMediaUrl) {
+                img.src = githubMediaUrl;
+            } else if (img.src !== rawGithubUrl) {
+                img.src = rawGithubUrl;
+            } else {
+                img.src = "https://placehold.co/300x300/16a34a/ffffff?text=Jiraporn+T.";
             }
         }
 
